@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>tstrausbaugh@example.invalid</email>
+        <name>tstrausbaugh</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="github">EpicGames/raddebugger</remote-id>
+    </upstream>
+    <longdescription lang="en">
+The RAD Debugger is a native, user-mode, multi-process, graphical debugger
+from Epic Games. This package also installs the companion RAD Linker
+(radlink), a fast PE/COFF linker, and radbin, a RAD Debug Info (RDI)
+conversion and dump utility.
+    </longdescription>
+</pkgmetadata>
