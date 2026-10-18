@@ -20,13 +20,16 @@ KEYWORDS="~amd64"
 
 IUSE=""
 
+# build.sh queries pkg-config for the "gl" and "egl" modules, so it needs the
+# libGL (gl.pc) and libEGL (egl.pc) development files. libglvnd only builds the
+# X11/libGL half when its X flag is on; without it, gl.pc is absent and the
+# compile silently bails before emitting any binary.
 RDEPEND="
     media-libs/freetype:=
     x11-libs/libX11
     x11-libs/libXext
     x11-libs/libXfixes
-    # libglvnd ships gl.pc and egl.pc, which build.sh queries via pkg-config.
-    media-libs/libglvnd
+    media-libs/libglvnd[X]
 "
 DEPEND="${RDEPEND}"
 BDEPEND="
