@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>tstrausbaugh@straustech.net</email>
+        <name>tstrausbaugh</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="codeberg">cow-wm/cow</remote-id>
+    </upstream>
+    <longdescription lang="en">
+CoW (Compositor on Wayland) is a stacking window manager in the spirit of
+FVWM and MWM, built on top of River as the Wayland compositor. It provides
+server-side decorations, containers with tabs, native menus, an internal DSL
+with filtering, and IPC scripting (moocow) so the same commands work both in
+configuration files and at runtime.
+    </longdescription>
+    <use>
+        <flag name="man">Install man pages (built with scdoc when present)</flag>
+    </use>
+</pkgmetadata>

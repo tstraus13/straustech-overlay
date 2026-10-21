@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+    <maintainer type="person">
+        <email>tstrausbaugh@straustech.net</email>
+        <name>tstrausbaugh</name>
+    </maintainer>
+    <upstream>
+        <remote-id type="codeberg">river/river</remote-id>
+    </upstream>
+    <longdescription lang="en">
+River is a tiling Wayland compositor with a non-tile-friendly tiling window
+manager. Since 0.4.x it is written in Zig and built with the Zig build
+system; this ebuild seeds Zig's package cache offline from fetched sources so
+the sandbox stays network-free. The man pages require scdoc at build time.
+    </longdescription>
+    <use>
+        <flag name="xwayland">Build with XWayland support for X11 applications</flag>
+        <flag name="man">Build man pages (requires scdoc)</flag>
+    </use>
+</pkgmetadata>
