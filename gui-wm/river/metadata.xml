@@ -9,10 +9,9 @@
         <remote-id type="codeberg">river/river</remote-id>
     </upstream>
     <longdescription lang="en">
-River is a tiling Wayland compositor with a non-tile-friendly tiling window
-manager. Since 0.4.x it is written in Zig and built with the Zig build
-system; this ebuild seeds Zig's package cache offline from fetched sources so
-the sandbox stays network-free. The man pages require scdoc at build time.
+River is a non-monolithic Wayland compositor: it handles the Wayland protocols
+and rendering, while window management is done by a separate client speaking
+the river-window-management-v1 protocol (for example gui-wm/cow).
     </longdescription>
     <use>
         <flag name="xwayland">Build with XWayland support for X11 applications</flag>

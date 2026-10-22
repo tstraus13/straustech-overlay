@@ -16,6 +16,6 @@ with filtering, and IPC scripting (moocow) so the same commands work both in
 configuration files and at runtime.
     </longdescription>
     <use>
-        <flag name="man">Install man pages (built with scdoc when present)</flag>
+        <flag name="ncurses">Build the cowdiag ncurses diagnostics dashboard</flag>
     </use>
 </pkgmetadata>
