@@ -14,7 +14,7 @@ S="${WORKDIR}/${PN}"
 LICENSE="ISC"
 SLOT="0"
 KEYWORDS="~amd64"
-IUSE="ncurses test"
+IUSE="ncurses +themes test"
 RESTRICT="!test? ( test )"
 
 DEPEND="
@@ -55,6 +55,17 @@ src_prepare() {
 		-e "s|etc_prefix + '/etc/cow'|${sysconf}|" \
 		meson.build || die
 	grep -q "etc_prefix + '/etc/cow" meson.build && die "sysconfdir fix did not apply"
+
+	if use themes; then
+		# The example themes set titlebar.button.N.action, which cow-0.3
+		# accepts in validation but has no option for, so every `include`
+		# reports "unknown key". The lines only restate the default button
+		# bindings (now done with bind-decoration), so drop them.
+		sed -i -E '/^decor -d [^ ]+ titlebar\.button\.[0-9]+\.action /d' \
+			examples/themes/*/theme.conf || die
+		grep -qE 'titlebar\.button\.[0-9]+\.action' examples/themes/*/theme.conf \
+			&& die "theme .action cleanup did not apply"
+	fi
 }
 
 src_configure() {
@@ -65,6 +76,19 @@ src_configure() {
 	meson_src_configure
 }
 
+src_install() {
+	meson_src_install
+
+	if use themes; then
+		insinto /usr/share/cow/themes
+		local theme
+		for theme in examples/themes/*/; do
+			[[ -f ${theme}theme.conf ]] && doins -r "${theme%/}"
+		done
+		newdoc examples/themes/README.md README.themes.md
+	fi
+}
+
 pkg_postinst() {
 	elog "Start a CoW session from a Wayland display manager (cow.desktop),"
 	elog "or from a TTY with:  river -c cow-start"
@@ -72,4 +96,12 @@ pkg_postinst() {
 	elog "The default /etc/cow/cow.conf binds Logo+Return to xterm; install a"
 	elog "terminal (e.g. x11-terms/xterm with river[xwayland], or gui-apps/foot)"
 	elog "or change that binding in ~/.config/cow/cow.conf."
+
+	if use themes; then
+		elog
+		elog "Example decoration themes are in ${EROOT}/usr/share/cow/themes."
+		elog "Enable one in ~/.config/cow/cow.conf, e.g.:"
+		elog "    include /usr/share/cow/themes/redmond98/theme.conf"
+		elog "    decor -a redmond98"
+	fi
 }

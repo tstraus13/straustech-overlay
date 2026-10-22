@@ -16,6 +16,7 @@ with filtering, and IPC scripting (moocow) so the same commands work both in
 configuration files and at runtime.
     </longdescription>
     <use>
+        <flag name="themes">Install the example decoration themes (fvwm-themes conversions) to /usr/share/cow/themes</flag>
         <flag name="ncurses">Build the cowdiag ncurses diagnostics dashboard</flag>
     </use>
 </pkgmetadata>
