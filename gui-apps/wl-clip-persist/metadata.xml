@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>tstrausbaugh@straustech.net</email>
+		<name>tstrausbaugh</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">Linus789/wl-clip-persist</remote-id>
+	</upstream>
+	<longdescription lang="en">
+Keeps Wayland clipboard contents after the source application exits.
+Ebuild copied unchanged from the GURU repository (maintainer there:
+John M. Harris, Jr.) so this overlay does not need GURU enabled.
+	</longdescription>
+</pkgmetadata>

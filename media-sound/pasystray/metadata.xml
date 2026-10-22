@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+	<maintainer type="person">
+		<email>tstrausbaugh@straustech.net</email>
+		<name>tstrausbaugh</name>
+	</maintainer>
+	<upstream>
+		<remote-id type="github">christophgysin/pasystray</remote-id>
+	</upstream>
+	<use>
+		<flag name="appindicator">Use <pkg>dev-libs/libayatana-appindicator</pkg> (StatusNotifierItem) for the tray icon; required on Wayland</flag>
+	</use>
+</pkgmetadata>
