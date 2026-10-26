@@ -17,6 +17,7 @@ configuration files and at runtime.
     </longdescription>
     <use>
         <flag name="themes">Install the example decoration themes (fvwm-themes conversions) to /usr/share/cow/themes</flag>
+        <flag name="appmenu">Build <pkg>dev-libs/libxml2</pkg>-based cow-appmenu, which generates the default Applications menu from installed desktop entries</flag>
         <flag name="ncurses">Build the cowdiag ncurses diagnostics dashboard</flag>
     </use>
 </pkgmetadata>
